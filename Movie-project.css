@@ -4,6 +4,9 @@
 body{
     background-color: antiquewhite;
 }
+.navbar-brand{
+    font-size: 40px;
+}
 
 
 
@@ -65,10 +68,12 @@ body{
     100% {transform: rotate(360deg);}
 }
 
+
 .onload{
 position: absolute;
     right: 100px;
     top: 200px;
+    display: none;
 }
 .pageLoad{
     font-size: 30px;
@@ -78,9 +83,16 @@ position: absolute;
 
 /*******************************************/
 
-#all-Forms{
+.form{
+
+padding: 20px 20px;
     background-color: darkgoldenrod;
+border-radius: 10px;
+    position: -webkit-sticky;
+    margin-right: auto;
+
 }
+
 #card1{
     background-color: khaki;
 }
