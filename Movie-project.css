@@ -1,3 +1,12 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: antiquewhite;
+}
+
+
+
 .card{
     font-size: 15px;
     height: 20rem;
@@ -56,5 +65,22 @@
     100% {transform: rotate(360deg);}
 }
 
+.onload{
+position: absolute;
+    right: 100px;
+    top: 200px;
+}
+.pageLoad{
+    font-size: 30px;
+    color: lightskyblue;
+}
+
 
 /*******************************************/
+
+#all-Forms{
+    background-color: darkgoldenrod;
+}
+#card1{
+    background-color: khaki;
+}
