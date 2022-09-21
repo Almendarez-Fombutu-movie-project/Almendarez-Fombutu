@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-light bg-warning p-4">
+<nav class="navbar sticky-top navbar-light bg-warning p-4">
     <div class="container-fluid">
         <h1 class="navbar-brand mb-0 h1 text-center mx-auto">Movie Site</h1>
     </div>
@@ -19,69 +19,115 @@
 
 <div class="container">
     <div class="row">
-        <div  class="col-4 order-2 ms-auto">
-<div class="all-forms me-3">
-            <form class="form mt-3">
+        <div class="col-4 order-2 ms-auto">
 
-                <label for="movie" class="col-form-label">Add a Movie</label>
-                <input type="text" class="form-control col" id="movie" placeholder="input your Movie title">
+            <div class="all-forms  ">
+
+                <button id="add-btn" class="btn btn-outline-secondary position-fixed">Add Movie</button>
+                <div class="hidden1 " id="add">
+
+                <form class="form mt-3">
+
+                    <label for="title" class="form-label">Title </label>
+                    <input type="text" id="title" class="form-control">
+                    <br>
+                    <label for="genre" class="col-form-label">Genre </label>
+                    <input type="text" id="genre" class="form-control">
+                    <br>
+                    <label for="rating" class="col-form-label">Rating </label>
+                    <input type="text" id="rating" class="form-control">
+                    <br>
+                    <label for="director" class="col-form-label">Director </label>
+                    <input type="text" id="director" class="form-control">
+                    <br>
+                    <button type="button" class="btn btn-success ">Submit</button>
+
+                </form>
+                </div>
+                <hr>
 
 
-                <label for="rate-selection" class="form-label col-form-label">Rating</label>
-                <select class="form-select form-select-lg mb-3 col" aria-label=".form-select-lg" id="rate-selection"
-                        onchange="changeRating()">
-                    <option>&#9733;</option>
-                    <option>&#9733;&#9733;</option>
-                    <option>&#9733;&#9733;&#9733;</option>
-                    <option>&#9733;&#9733;&#9733;&#9733;</option>
-                    <option>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                <button id="edit-btn" class="btn btn-outline-secondary position-fixed">Edit Movie</button>
+
+                <div class="hidden2  " id="edit">
+                <form class="form mt-4">
+                    <label class="col-form-label" for = "selectMenu"></label>
+                <select id="selectMenu" class="hidden1 select"></select>
+
+                        <label class="col-form-label" for="newTitle">Change Title </label>
+                        <input type="text" id="newTitle"  class="form-control">
+                        <br>
+                        <label class="col-form-label" for="newGenre">Change Genre </label>
+                        <input type="text" id="newGenre"  class="form-control">
+                        <br>
+                        <label class="col-form-label" for="newRating">Change Rating </label>
+                        <input type="text" id="newRating"  class="form-control">
+                        <br>
+                        <label class="col-form-label" for="newDirector">Change Director </label>
+                        <input type="text" id="newDirector"  class="form-control">
+                    <br>
+                    <button id="changeMovie" class="btn btn-outline-secondary">Update Movie</button>
+
+                </form>
+                    </div>
+
+
+        <!--Delete menu-->
+
+            <button id="delete-btn" class="hidden btn btn-outline-secondary position-fixed">Delete a movie</button>
+            <div class="hidden3" id="delete">
+                <form class="form">
+                <label class="col-form-label" for = "selectMenu2" ></label>
+                <select id="selectMenu2" class="">
+                    <option></option>
                 </select>
-
-                <button type="button" class="btn btn-success">Submit</button>
-            </form>
-
-
-
-            <form class="form mt-4">
-
-                <label for="movie-selection" class="form-label col-form-label">Edit Movie</label>
-                <select class="form-select form-select-lg mb-3 col" aria-label=".form-select-lg" id="movie-selection"
-                        onchange="changeMovie()">
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                </select>
-                <button type="button" class="btn btn-success">Submit</button>
-
-            </form>
-
-</div>
-        </div>
-
-            <!--********************************************************************************    -->
-            <div class="onload row  text-center">
-                <div class="col-12 text-center m-auto mt-4 pageLoad">Page Will display shortly</div>
-                <div class="clock col-12 text-center m-auto mt-5"></div>
+                <button id="delete-movie" class="hidden1 btn btn-danger">Delete movie</button>
+                </form>
             </div>
-            <!--**********************************************************************************-->
-
-        <div class="col-8 main-content">
-
-
-
-<div id="car-load" class="row row-cols-3 justify-content-around me-5">
-
-</div>
         </div>
+
+
+
     </div>
+
+
+
+
+
+
+<!--********************************************************************************    -->
+<div class="onload row  text-center">
+    <div class="col-12 text-center m-auto mt-4 pageLoad">Page Will display shortly</div>
+    <div class="clock col-12 text-center m-auto mt-5"></div>
 </div>
+<!--**********************************************************************************-->
+
+<div class="col-8 main-content">
+
+
+    <div id="card-load" class="row row-cols-3 justify-content-around me-5"></div>
+
+</div>
+</div>
+
+</div>
+<footer class="footer">
+<div class=" text-light row row-cols-5 p-2 pt-3 footer bg-secondary ">
+    <p class="bolt text-light"><i class="fas fa-ticket-alt col"></i></p>
+    <p class="followUs text-light">Follow Us @</p>
+    <p><a href="#" class="twitter"><i class="fab fa-twitter col"></i></a></p>
+    <p><a href="#" class="fb"><i class="fab fa-facebook col"></i></a></p>
+    <p><a href="#" class="ig"><i class="fab fa-instagram col"></i></a></p>
+</div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <script src="Movie-project.js"></script>
 <script src="Movie-project.css"></script>
 <script src="https://kit.fontawesome.com/ebef8c2648.js" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </body>
 </html>

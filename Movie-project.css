@@ -92,7 +92,15 @@ border-radius: 10px;
     margin-right: auto;
 
 }
+.all-forms{
+
+}
 
 #card1{
     background-color: khaki;
+}
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
