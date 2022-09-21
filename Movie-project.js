@@ -5,6 +5,9 @@ fetch("https://caramel-axiomatic-class.glitch.me/movies").then(resp => resp.json
         return movie.title !== ''
     })
     console.log(goodMovies)
+let html = ''
+    goodMovies.forEach((item)=>{
 
+    })
 })
 

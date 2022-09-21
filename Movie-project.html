@@ -4,47 +4,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="Movie-project.css">
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-primary">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1 text-center mx-auto">Movie Site</span>
     </div>
 </nav>
 
 <div class="container">
-<div class="form mb-3">
 
-    <label for="movie">Movie Title</label>
-    <input type="text" class="form-control" id="movie" placeholder="input your Movie title">
+
+    <div class="form mb-3">
+        <div class="row text-center">
+        <label for="movie" class="col">Add a Movie</label>
+        <input type="text" class="form-control col" id="movie" placeholder="input your Movie title">
+        </div>
+
+        <div class="row text-center">
+            <label for="rate-selection" class="form-label col">Rating</label>
+            <select class="form-select form-select-lg mb-3 col" aria-label=".form-select-lg" id="rate-selection"
+                    onchange="changeRating()">
+                <option>&#9733; </option>
+                <option>&#9733;&#9733;</option>
+                <option>&#9733;&#9733;&#9733;</option>
+                <option>&#9733;&#9733;&#9733;&#9733;</option>
+                <option>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+            </select>
+        </div>
+
+
+
+
+        <button id="submit" type="submit">Submit</button>
+    </div>
+
+<form class="row">
+
+    <label for="movie-selection" class="form-label col">Edit Movie</label>
+
+
+    <select class="form-select form-select-lg mb-3 col" aria-label=".form-select-lg" id="movie-selection"
+            onchange="changeMovie()">
+        <option> </option>
+        <option></option>
+        <option></option>
+        <option></option>
+    </select>
+
+</form>
+
+
+<!--********************************************************************************    -->
+    <div class="onload row mx-auto text-center"   >
+        <div class="col-12 text-center m-auto mt-4">Page Will display shortly</div>
+        <div class="clock col-12 text-center m-auto mt-5"></div>
+    </div>
+<!--**********************************************************************************-->
+        <div class="row justify-content-center">
+            <div class="col-12 ">
+                <div id="days-container" class="row row-cols-5 ">
+                </div>
+
+                <div id="day1" class="card col">
+                    <div class="card-header"></div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item "></li>
+                        <li class="list-group-item "></li>
+                        <li class="list-group-item ">Descriptiono</li>
+                        <li class="list-group-item ">Humidity</li>
+                        <li class="list-group-item ">Wind Speed:</li>
+                        <li class="list-group-item ">Pressure: </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
 
 </div>
-<div class="form">
-    <label for="rating">Rating</label>
-    <input type="text" class="form-control" id="rating" placeholder="rate your movie">
-    <button id="submit" type="submit">Submit</button>
-</div>
-
-    <table class="table table-success table-striped">
-        <tr>
-            <th>Movie Title</th>
-            <th>Director</th>
-            <th>Genre</th>
-            <th>Rating</th>
-
-        </tr>
-        <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-            <td>Germany</td>
-        </tr>
-
-    </table>
-
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 <script src="Movie-project.js"></script>
 <script src="Movie-project.css"></script>
 </body>
