@@ -1,4 +1,4 @@
-(function () {
+
 
 const url = "https://caramel-axiomatic-class.glitch.me/movies"
     var onload = document.querySelector('.onload')
@@ -8,7 +8,7 @@ const url = "https://caramel-axiomatic-class.glitch.me/movies"
     var showAdd = document.querySelector('#add-btn')
     var showEdit = document.querySelector('#edit-btn')
     var showDelete = document.querySelector('#delete-btn')
-
+var select2 =  document.querySelector('#selectMenu2')
 
     //onload Display
     mainCards.innerHTML = onload.innerHTML
@@ -58,7 +58,7 @@ const url = "https://caramel-axiomatic-class.glitch.me/movies"
         })
 
         //when the option selected is changed, update the input fields
-        $("#selectMenu").change(function () {
+       $(select1).change(function () {
             let target = $(this).val()
             console.log(target);
 
@@ -89,28 +89,33 @@ const url = "https://caramel-axiomatic-class.glitch.me/movies"
                     },
                     body: JSON.stringify(insert)
                 }
+                var url2 =  "https://caramel-axiomatic-class.glitch.me/movies/"
                 //PATCH request
-                fetch(`${url}/${input}`, patchOptions)
+                fetch(`${url2}/${input}`, patchOptions)
                     .then();
             });
 
-            //delete movie
-            let deleteOptions = {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            };
+           //delete movie
 
-            $("#selectMenu2").change(function()  {
+           let deleteOptions = (id) => {
+               fetch(`${url}/${id}`, {
+                   method: "delete",
+                   headers: {
+                       'Content-Type': 'application/json'
+                   }
+               })
+           }
+deleteOptions()
+
+           $(select2).change(function()  {
                 let inputVal = $(this).val();
                 console.log("hello: " + inputVal);
+
                 $("#delete-movie").click(function() {
 
                     //DELETE request
-
-                    fetch(`${url}/${inputVal}`, deleteOptions)
-                        .then(moviePosters);
+                    deleteOptions(inputVal)
+                    console.log(goodMovies)
                 });
             });
 
@@ -142,4 +147,4 @@ const url = "https://caramel-axiomatic-class.glitch.me/movies"
         })
 
     })
-}())
+
