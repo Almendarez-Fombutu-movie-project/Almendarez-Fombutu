@@ -23,7 +23,7 @@
 
             <div class="all-forms  ">
 
-                <button id="add-btn" class="btn btn-outline-secondary position-fixed">Add Movie</button>
+                <button id="add-btn" class="btn btn-outline-success mt-2 w-50">Add Movie</button>
                 <div class="hidden1 " id="add">
 
                 <form class="form mt-3">
@@ -40,19 +40,21 @@
                     <label for="director" class="col-form-label">Director </label>
                     <input type="text" id="director" class="form-control">
                     <br>
-                    <button type="button" class="btn btn-success ">Submit</button>
+                    <button id="newMovie" type="submit" class="btn btn-outline-primary bg-success text-white">Submit</button>
 
                 </form>
                 </div>
                 <hr>
 
 
-                <button id="edit-btn" class="btn btn-outline-secondary position-fixed">Edit Movie</button>
+                <button id="edit-btn" class="btn btn-outline-secondary w-50">Edit Movie</button>
 
                 <div class="hidden2  " id="edit">
                 <form class="form mt-4">
-                    <label class="col-form-label" for = "selectMenu"></label>
-                <select id="selectMenu" class="hidden1 select"></select>
+                    <label for = "selectMenu" class="col-form-label" ></label>
+                <select id="selectMenu" class="form-select">
+                    <option></option>
+                </select>
 
                         <label class="col-form-label" for="newTitle">Change Title </label>
                         <input type="text" id="newTitle"  class="form-control">
@@ -66,22 +68,24 @@
                         <label class="col-form-label" for="newDirector">Change Director </label>
                         <input type="text" id="newDirector"  class="form-control">
                     <br>
-                    <button id="changeMovie" class="btn btn-outline-secondary">Update Movie</button>
+                    <button id="changeMovie" class="btn btn-outline-secondary text-white" type="submit">Update Movie</button>
 
                 </form>
                     </div>
 
 
         <!--Delete menu-->
+                <hr>
+            <button id="delete-btn" class=" btn btn-outline-danger mb-2 w-50  ">Delete movie</button>
 
-            <button id="delete-btn" class="hidden btn btn-outline-secondary position-fixed">Delete a movie</button>
             <div class="hidden3" id="delete">
-                <form class="form">
+                <form class="form ">
                 <label class="col-form-label" for = "selectMenu2" ></label>
-                <select id="selectMenu2" class="">
+                <select id="selectMenu2" class="form-select">
                     <option></option>
                 </select>
-                <button id="delete-movie" class="hidden1 btn btn-danger">Delete movie</button>
+
+                <button id="delete-movie" class=" btn btn-danger mt-2">Delete</button>
                 </form>
             </div>
         </div>

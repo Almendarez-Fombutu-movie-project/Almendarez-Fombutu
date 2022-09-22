@@ -11,6 +11,8 @@ body{
 
 
 .card{
+    border: 2px solid darkgreen;
+    border-radius: 15px;
     font-size: 15px;
     height: 20rem;
     width: 14rem;
@@ -103,4 +105,7 @@ border-radius: 10px;
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+.hidden1,.hidden2,.hidden3{
+    display: none;
 }
