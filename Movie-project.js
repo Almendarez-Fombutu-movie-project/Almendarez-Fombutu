@@ -1,9 +1,8 @@
+(function(){
 
-
-const url = "https://caramel-axiomatic-class.glitch.me/movies"
+const url = "https://caramel-axiomatic-class.glitch.me/movies/"
     var onload = document.querySelector('.onload')
     var mainCards = document.getElementById("card-load")
-    var select2 = document.getElementById("selectMenu2")
     var select1 = document.getElementById("selectMenu")
     var showAdd = document.querySelector('#add-btn')
     var showEdit = document.querySelector('#edit-btn')
@@ -32,12 +31,13 @@ var select2 =  document.querySelector('#selectMenu2')
     fetch(url).then(resp => resp.json()).then(data => {
 
         console.log(data)
-        const goodMovies = data.filter((movie) => {
-            return movie.title !== ''
-        })
+        const goodMovies = data
+
+
         console.log(goodMovies)
         let html = ''
         let html2 = ''
+      let  html3 = ''
         goodMovies.forEach((item) => {
             html += `<div id="card1" class="card col">
                 <img src="..." class="card-img-top" alt="...">
@@ -51,14 +51,50 @@ var select2 =  document.querySelector('#selectMenu2')
                     </div>
             </div>`
             html2 += `<option value=${item.id}>${item.title}</option>`
-
+html3 += `<option value=${item.id}>${item.title}</option>`
             mainCards.innerHTML = html
             select1.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html2}  `
-            select2.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html2}   `
+            select2.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html3}   `
         })
 
+
+
+        //delete movie
+
+        let deleteOptions = (id) => {
+            fetch(`${url}${id}`, {
+                method: "delete",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        }
+
+        select2.addEventListener("change",function() {
+
+            let inputVal = select2.value;
+            console.log("hello: " + inputVal);
+
+
+
+
+            $("#delete-movie").on("click", function(e) {
+                e.preventDefault()
+
+                //DELETE request
+                deleteOptions(inputVal)
+                console.log(goodMovies)
+            })
+        });
+
+
+
+
+
+
+
         //when the option selected is changed, update the input fields
-       $(select1).change(function () {
+       $(select1).on("change", function () {
             let target = $(this).val()
             console.log(target);
 
@@ -73,7 +109,8 @@ var select2 =  document.querySelector('#selectMenu2')
                 }
             }
             //Edit selected movie
-            $("#changeMovie").click(function(){
+            $("#changeMovie").on("click", function(e){
+                e.preventDefault()
                 let input = $("#selectMenu").val()
                 let insert = {
                     title: $("#newTitle").val(),
@@ -91,37 +128,17 @@ var select2 =  document.querySelector('#selectMenu2')
                 }
                 var url2 =  "https://caramel-axiomatic-class.glitch.me/movies/"
                 //PATCH request
-                fetch(`${url2}/${input}`, patchOptions)
-                    .then();
+                fetch(`${url2}${input}`, patchOptions)
+                    .then().catch(error => console.log(error))
+
             });
 
-           //delete movie
 
-           let deleteOptions = (id) => {
-               fetch(`${url}/${id}`, {
-                   method: "delete",
-                   headers: {
-                       'Content-Type': 'application/json'
-                   }
-               })
-           }
-deleteOptions()
 
-           $(select2).change(function()  {
-                let inputVal = $(this).val();
-                console.log("hello: " + inputVal);
-
-                $("#delete-movie").click(function() {
-
-                    //DELETE request
-                    deleteOptions(inputVal)
-                    console.log(goodMovies)
-                });
-            });
 
 
             //create a new movie
-            $('#newMovie').click((e) => {
+            $('#newMovie').on("click",(e) => {
                 e.preventDefault();
                 var addMovie = {
                     title: $("#title").val(),
@@ -142,9 +159,11 @@ deleteOptions()
                 fetch(url, postOptions)
                     .then(resp => resp.json())
                     .then().catch(error => console.log(error))
+
             });
 
         })
 
     })
 
+}())
