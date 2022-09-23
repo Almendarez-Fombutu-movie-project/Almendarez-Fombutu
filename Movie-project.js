@@ -1,14 +1,14 @@
-(function(){
+(function () {
     var movietok = movie_token
-url2 = `https://www.omdbapi.com?type=movie&apikey=thewdb&t`
-const url = "https://occipital-erratic-idea.glitch.me/movies/"
+    url2 = `https://www.omdbapi.com?type=movie&apikey=thewdb&t`
+    const url = "https://occipital-erratic-idea.glitch.me/movies/"
     var onload = document.querySelector('.onload')
     var mainCards = document.getElementById("card-load")
     var select1 = document.getElementById("selectMenu")
     var showAdd = document.querySelector('#add-btn')
     var showEdit = document.querySelector('#edit-btn')
     var showDelete = document.querySelector('#delete-btn')
-var select2 =  document.querySelector('#selectMenu2')
+    var select2 = document.querySelector('#selectMenu2')
 
     //onload Display
     mainCards.innerHTML = onload.innerHTML
@@ -27,9 +27,9 @@ var select2 =  document.querySelector('#selectMenu2')
     showDelete.addEventListener("click", function () {
         $("#delete").toggleClass("hidden3")
     })
-fetch(url2).then(resp => resp.json()).then(data => {
-    console.log(data)
-})
+    fetch(url2).then(resp => resp.json()).then(data => {
+        console.log(data)
+    })
 
     fetch(url).then(resp => resp.json()).then(data => {
 
@@ -40,7 +40,7 @@ fetch(url2).then(resp => resp.json()).then(data => {
         console.log(goodMovies)
         let html = ''
         let html2 = ''
-      let  html3 = ''
+        let html3 = ''
         goodMovies.forEach((item) => {
             html += `<div id="card1" class="card col gx-0">
                 <img src="${item.Poster}" class=" card-img-top img" alt="...">
@@ -54,12 +54,15 @@ fetch(url2).then(resp => resp.json()).then(data => {
                     </div>
             </div>`
             html2 += `<option value=${item.id}>${item.title}</option>`
+<<<<<<< HEAD
 html3 += `<option value=${item.id}>${item.Title}</option>`
+=======
+            html3 += `<option value=${item.id}>${item.title}</option>`
+>>>>>>> 24167a6b632a964b5762fe44e7728242a6f2d632
             mainCards.innerHTML = html
             select1.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html2}  `
             select2.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html3}   `
         })
-
 
 
         //delete movie
@@ -73,15 +76,13 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
             })
         }
 
-        select2.addEventListener("change",function() {
+        select2.addEventListener("change", function () {
 
             let inputVal = select2.value;
             console.log("hello: " + inputVal);
 
 
-
-
-            $("#delete-movie").on("click", function(e) {
+            $("#delete-movie").on("click", function (e) {
                 e.preventDefault()
 
                 //DELETE request
@@ -91,13 +92,8 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
         });
 
 
-
-
-
-
-
         //when the option selected is changed, update the input fields
-       $(select1).on("change", function () {
+        $(select1).on("change", function () {
             let target = $(this).val()
             console.log(target);
 
@@ -112,7 +108,7 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
                 }
             }
             //Edit selected movie
-            $("#changeMovie").on("click", function(e){
+            $("#changeMovie").on("click", function (e) {
                 e.preventDefault()
                 let input = $("#selectMenu").val()
                 let insert = {
@@ -129,7 +125,7 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
                     },
                     body: JSON.stringify(insert)
                 }
-                var url2 =  "https://caramel-axiomatic-class.glitch.me/movies/"
+                var url2 = "https://caramel-axiomatic-class.glitch.me/movies/"
                 //PATCH request
                 fetch(`${url2}${input}`, patchOptions)
                     .then().catch(error => console.log(error))
@@ -137,17 +133,11 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
             });
 
 
-
-
-
             //create a new movie
-            $('#newMovie').on("click",(e) => {
+            $('#newMovie').on("click", (e) => {
                 e.preventDefault();
                 var addMovie = {
                     title: $("#title").val(),
-                     genre: $("#genre").val(),
-                    rating: $("#rating").val(),
-                    director: $("#director").val(),
 
                 }
 
@@ -166,6 +156,19 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
             });
 
         })
+        var newMovie = {
+            "Title": "Clueless",
+            "Year": "1995",
+            "imdbID": "tt0112697",
+            "Type": "movie",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMzBmOGQ0NWItOTZjZC00ZDAxLTgyOTEtODJiYWQ2YWNiYWVjXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
+        }
+        const addAMovie = (movie) => {
+            fetch("https://occipital-erratic-idea.glitch.me/movies/", {
+                method: "POST", headers: {'Content-Type': 'application/json',},
+                body: JSON.stringify(movie),
+            })
+        }
 
     })
 
