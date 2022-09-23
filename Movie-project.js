@@ -54,11 +54,10 @@
                     </div>
             </div>`
             html2 += `<option value=${item.id}>${item.title}</option>`
-<<<<<<< HEAD
+
 html3 += `<option value=${item.id}>${item.Title}</option>`
-=======
+
             html3 += `<option value=${item.id}>${item.title}</option>`
->>>>>>> 24167a6b632a964b5762fe44e7728242a6f2d632
             mainCards.innerHTML = html
             select1.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html2}  `
             select2.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html3}   `
