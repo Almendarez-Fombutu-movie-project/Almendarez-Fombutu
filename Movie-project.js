@@ -1,6 +1,7 @@
 (function(){
-
-const url = "https://caramel-axiomatic-class.glitch.me/movies/"
+    var movietok = movie_token
+url2 = `https://www.omdbapi.com?type=movie&apikey=thewdb&t`
+const url = "https://occipital-erratic-idea.glitch.me/movies/"
     var onload = document.querySelector('.onload')
     var mainCards = document.getElementById("card-load")
     var select1 = document.getElementById("selectMenu")
@@ -26,7 +27,9 @@ var select2 =  document.querySelector('#selectMenu2')
     showDelete.addEventListener("click", function () {
         $("#delete").toggleClass("hidden3")
     })
-
+fetch(url2).then(resp => resp.json()).then(data => {
+    console.log(data)
+})
 
     fetch(url).then(resp => resp.json()).then(data => {
 
@@ -41,7 +44,7 @@ var select2 =  document.querySelector('#selectMenu2')
         goodMovies.forEach((item) => {
             html += `<div id="card1" class="card col">
                 <img src="..." class="card-img-top" alt="...">
-                    <div class="card-header">Movie Title: ${item.title}</div>
+                    <div class="card-header">Movie Title: ${item.Title}</div>
                     <div class="card-body ">
                         <p class="card-text ">Director: ${item.director}</p>
                         <p class="card-text ">Genre: ${item.genre}</p>
