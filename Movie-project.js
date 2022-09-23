@@ -168,6 +168,19 @@ html3 += `<option value=${item.id}>${item.Title}</option>`
                 body: JSON.stringify(movie),
             })
         }
+        const APIMovie = async(title) => {
+            const res = await fetch(`https://www.omdbapi.com?s=${title}&apikey=thewdb`);
+            const data = await res.json()
+            return data.Search[0]
+        }
+        const movieForm = document.querySelector("#addMovieForm")
+        movieForm.addEventListener("submit", async (e)=>{
+            e.preventDefault()
+            const input = document.querySelector("#title")
+           const movie = await APIMovie(input.value)
+            await addAMovie(movie)
+            input.value = ""
+        })
 
     })
 
