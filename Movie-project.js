@@ -42,8 +42,8 @@ fetch(url2).then(resp => resp.json()).then(data => {
         let html2 = ''
       let  html3 = ''
         goodMovies.forEach((item) => {
-            html += `<div id="card1" class="card col">
-                <img src="..." class="card-img-top" alt="...">
+            html += `<div id="card1" class="card col gx-0">
+                <img src="${item.Poster}" class=" card-img-top img" alt="...">
                     <div class="card-header">Movie Title: ${item.Title}</div>
                     <div class="card-body ">
                         <p class="card-text ">Director: ${item.director}</p>
@@ -54,7 +54,7 @@ fetch(url2).then(resp => resp.json()).then(data => {
                     </div>
             </div>`
             html2 += `<option value=${item.id}>${item.title}</option>`
-html3 += `<option value=${item.id}>${item.title}</option>`
+html3 += `<option value=${item.id}>${item.Title}</option>`
             mainCards.innerHTML = html
             select1.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html2}  `
             select2.innerHTML = ` <option value='-1' selected>Select a movie</option> ${html3}   `
