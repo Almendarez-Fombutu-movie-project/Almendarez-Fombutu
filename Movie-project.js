@@ -1,6 +1,6 @@
 (function () {
-    var movietok = movie_token
-    url2 = `https://www.omdbapi.com?type=movie&apikey=thewdb&t`
+
+
     const url = "https://occipital-erratic-idea.glitch.me/movies/"
     var onload = document.querySelector('.onload')
     var mainCards = document.getElementById("card-load")

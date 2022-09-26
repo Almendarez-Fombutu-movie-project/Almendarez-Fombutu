@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+;
+}
+body{
+    background-color: antiquewhite;
+}
+.navbar-brand{
+    font-size: 40px;
+}
+
+
+
+.card{
+    border: 2px solid darkgreen;
+    border-radius: 15px;
+    font-size: 15px;
+    height: 40rem;
+    width: 20rem;
+    margin: 10px 10px;
+    color: #4f4b4b;
+}
+
+
+
+.clock {
+
+    position:relative;
+    transform:scale(2);
+    border-radius:50%;
+    border:2px solid;
+    width:50px;
+    height:50px;
+
+}
+
+.clock:after {
+
+    position:absolute;
+    width:0px;
+    height:20px;
+    display:block;
+    border-left:2px solid #000;
+    content:'';
+    left:22px;
+    top:4px;
+    animation-duration: 1s;
+}
+
+/*clock animation*/
+/*******************************************************/
+.clock:before {
+    color: white;
+    position:absolute;
+    width:0px;
+    height:20px;
+    display:block;
+    border-left:2px solid #000;
+    content:'';
+    left:22px;
+    top:5px;
+    animation-duration: 60s;
+}
+
+.clock:before,.clock:after {
+
+    transform-origin: bottom;
+    animation-name: dial;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes dial {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+
+.onload{
+    color: white;
+    position: absolute;
+    right: 100px;
+    top: 200px;
+    display: none;
+}
+.pageLoad{
+    font-size: 30px;
+
+}
+
+
+/*******************************************/
+
+.form{
+
+    padding: 20px 20px;
+    background-color: black;
+    border-radius: 10px;
+    /*position: -webkit-sticky;*/
+    margin:auto ;
+
+
+}
+.all-forms{
+
+}
+
+#card1{
+    background-color: black;
+    color:white;
+}
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.hidden1,.hidden2,.hidden3{
+    display: none;
+}
+.img {
+    width: auto;
+    height: 70%;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
